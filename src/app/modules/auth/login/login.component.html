@@ -1,3 +1,140 @@
-<div class="card flex justify-center">
-    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+<div class="login-container" [class]="'theme-' + currentTheme">
+  <div class="login-wrapper">
+    <!-- Login Card -->
+    <p-card class="login-card">
+      <div class="card-header">
+        <div class="pi-with-text">
+          <div>
+            <h1 class="login-title">
+              <b style="color: rgb(73, 134, 73); font-size: 5rem">L</b>
+              <b>A</b> <b>M</b>
+              <b>S</b>
+            </h1>
+            <small>Laboratory Assets Management System</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Message with Enhanced Icons -->
+      <div *ngIf="loginError" class="error-message">
+        <div class="pi-with-text">
+          <i class="pi pi-exclamation-triangle pi-danger pi-shake pi-lg"></i>
+          <span>{{ loginError }}</span>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Email Field with Enhanced Icons -->
+        <div class="form-group">
+          <p-floatlabel>
+            <p-iconfield iconPosition="left">
+              <p-inputicon
+                styleClass="pi pi-envelope pi-primary pi-hover"
+              ></p-inputicon>
+              <input
+                pInputText
+                id="email"
+                formControlName="email"
+                [class.p-invalid]="isFieldInvalid('email')"
+                autocomplete="email"
+              />
+            </p-iconfield>
+            <label for="email"> Email Address </label>
+          </p-floatlabel>
+          <div *ngIf="isFieldInvalid('email')" class="error-text">
+            <i class="pi pi-times-circle pi-danger pi-mr-1"></i>
+            <small class="p-error">{{ getFieldError("email") }}</small>
+          </div>
+        </div>
+
+        <!-- Password Field with Enhanced Icons -->
+        <div class="form-group">
+          <p-floatlabel>
+            <p-password
+              formControlName="password"
+              [class.p-invalid]="isFieldInvalid('password')"
+              [toggleMask]="true"
+              [feedback]="false"
+              autocomplete="current-password"
+            >
+              <ng-template pTemplate="toggleicon" let-field>
+                <i
+                  [class]="
+                    field ? 'pi pi-eye-slash pi-hover' : 'pi pi-eye pi-hover'
+                  "
+                ></i>
+              </ng-template>
+            </p-password>
+            <label for="password">
+              <i class="pi pi-lock pi-mr-1 pi-muted"></i>
+              Password
+            </label>
+          </p-floatlabel>
+          <div *ngIf="isFieldInvalid('password')" class="error-text">
+            <i class="pi pi-times-circle pi-danger pi-mr-1"></i>
+            <small class="p-error">{{ getFieldError("password") }}</small>
+          </div>
+        </div>
+
+        <!-- Remember Me & Forgot Password with Enhanced Icons -->
+        <div class="form-options">
+          <div class="remember-me pi-with-text">
+            <p-checkbox
+              formControlName="rememberMe"
+              inputId="rememberMe"
+              binary="true"
+            >
+            </p-checkbox>
+            <label for="rememberMe" class="remember-label pi-with-text">
+              Remember me
+            </label>
+          </div>
+
+          <button
+            type="button"
+            class="forgot-password-link pi-with-text"
+            (click)="onForgotPassword()"
+          >
+            <i class="pi pi-question-circle pi-hover pi-mr-1"></i>
+            Forgot password?
+          </button>
+        </div>
+
+        <!-- Login Button with Enhanced Icons -->
+        <p-button
+          type="submit"
+          [disabled]="loginForm.invalid || isLoading"
+          styleClass="login-button"
+          [raised]="true"
+        >
+          <ng-template pTemplate="content">
+            <div class="pi-with-text">
+              <i *ngIf="isLoading" class="pi pi-spinner pi-spin"></i>
+              <i *ngIf="!isLoading" class="pi pi-sign-in"></i>
+              <span>{{ isLoading ? "Signing In..." : "Sign In" }}</span>
+            </div>
+          </ng-template>
+        </p-button>
+
+        <!-- Demo Credentials with Enhanced Icons -->
+      </form>
+
+      <!-- Footer with Enhanced Icons -->
+      <div class="login-footer">
+        <div class="signup-text pi-with-text">
+          <i class="pi pi-user-plus pi-muted pi-mr-1"></i>
+          <span>Don't have an account?</span>
+          <button
+            type="button"
+            class="signup-link pi-with-text"
+            (click)="onSignUp()"
+          >
+            <i class="pi pi-arrow-right pi-hover pi-ml-1"></i>
+            <span>Sign up here</span>
+          </button>
+        </div>
+      </div>
+    </p-card>
+  </div>
 </div>

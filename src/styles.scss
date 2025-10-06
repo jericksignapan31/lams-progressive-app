@@ -6,6 +6,260 @@
   box-sizing: border-box;
 }
 
+// ===== PRIMEICONS ENHANCEMENTS =====
+
+// Icon size classes
+.icon-xs {
+  font-size: 0.75rem !important;
+}
+.icon-sm {
+  font-size: 1rem !important;
+}
+.icon-md {
+  font-size: 1.25rem !important;
+}
+.icon-lg {
+  font-size: 1.5rem !important;
+}
+.icon-xl {
+  font-size: 2rem !important;
+}
+.icon-2xl {
+  font-size: 2.5rem !important;
+}
+.icon-3xl {
+  font-size: 3rem !important;
+}
+
+// Icon color classes (theme-aware)
+.icon-primary {
+  color: var(--p-primary-500) !important;
+}
+.icon-secondary {
+  color: var(--p-primary-400) !important;
+}
+.icon-success {
+  color: #22c55e !important;
+}
+.icon-info {
+  color: #3b82f6 !important;
+}
+.icon-warning {
+  color: #f59e0b !important;
+}
+.icon-danger {
+  color: #ef4444 !important;
+}
+.icon-muted {
+  color: var(--p-text-muted-color) !important;
+}
+.icon-white {
+  color: #ffffff !important;
+}
+.icon-dark {
+  color: #1f2937 !important;
+}
+
+// Icon animation classes
+.icon-spin {
+  animation: icon-spin 1s linear infinite;
+}
+
+.icon-pulse {
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+.icon-bounce {
+  animation: icon-bounce 1s ease-in-out infinite;
+}
+
+.icon-shake {
+  animation: icon-shake 0.5s ease-in-out;
+}
+
+// Icon hover effects
+.icon-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    color: var(--p-primary-500);
+  }
+}
+
+.icon-hover-rotate {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: rotate(15deg);
+  }
+}
+
+// Icon spacing utilities
+.icon-mr-1 {
+  margin-right: 0.25rem;
+}
+.icon-mr-2 {
+  margin-right: 0.5rem;
+}
+.icon-mr-3 {
+  margin-right: 0.75rem;
+}
+.icon-ml-1 {
+  margin-left: 0.25rem;
+}
+.icon-ml-2 {
+  margin-left: 0.5rem;
+}
+.icon-ml-3 {
+  margin-left: 0.75rem;
+}
+
+// Icon containers
+.icon-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--p-primary-50);
+  color: var(--p-primary-500);
+
+  &.icon-circle-sm {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.icon-circle-lg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &.icon-circle-success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+  }
+
+  &.icon-circle-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+
+  &.icon-circle-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+}
+
+// Common icon combinations
+.icon-with-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  i {
+    flex-shrink: 0;
+  }
+}
+
+// Status icons
+.status-icon {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+
+  &.status-online {
+    background-color: #22c55e;
+  }
+
+  &.status-offline {
+    background-color: #6b7280;
+  }
+
+  &.status-away {
+    background-color: #f59e0b;
+  }
+
+  &.status-busy {
+    background-color: #ef4444;
+  }
+}
+
+// Keyframe animations
+@keyframes icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes icon-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes icon-bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes icon-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+// Theme-specific icon colors for dark mode
+body.dark {
+  .icon-circle {
+    background-color: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+  }
+
+  .icon-muted {
+    color: #9ca3af;
+  }
+}
+
 // Global theming styles
 body {
   font-family: var(--p-font-family);

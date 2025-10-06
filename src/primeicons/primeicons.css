@@ -1,0 +1,551 @@
+/* ===== LAMS PWA - PRIMEICONS ENHANCEMENTS ===== */
+
+/* Import the base PrimeIcons */
+@import url("https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css");
+
+/* ===== ICON SIZE UTILITIES ===== */
+.pi-xs,
+.icon-xs {
+  font-size: 0.75rem !important;
+}
+.pi-sm,
+.icon-sm {
+  font-size: 1rem !important;
+}
+.pi-md,
+.icon-md {
+  font-size: 1.25rem !important;
+}
+.pi-lg,
+.icon-lg {
+  font-size: 1.5rem !important;
+}
+.pi-xl,
+.icon-xl {
+  font-size: 2rem !important;
+}
+.pi-2xl,
+.icon-2xl {
+  font-size: 2.5rem !important;
+}
+.pi-3xl,
+.icon-3xl {
+  font-size: 3rem !important;
+}
+.pi-4xl,
+.icon-4xl {
+  font-size: 4rem !important;
+}
+
+/* ===== ICON COLOR UTILITIES ===== */
+.pi-primary,
+.icon-primary {
+  color: var(--p-primary-500, #3b82f6) !important;
+}
+.pi-secondary,
+.icon-secondary {
+  color: var(--p-primary-400, #60a5fa) !important;
+}
+.pi-success,
+.icon-success {
+  color: #22c55e !important;
+}
+.pi-info,
+.icon-info {
+  color: #3b82f6 !important;
+}
+.pi-warning,
+.icon-warning {
+  color: #f59e0b !important;
+}
+.pi-danger,
+.icon-danger {
+  color: #ef4444 !important;
+}
+.pi-muted,
+.icon-muted {
+  color: var(--p-text-muted-color, #6b7280) !important;
+}
+.pi-white,
+.icon-white {
+  color: #ffffff !important;
+}
+.pi-dark,
+.icon-dark {
+  color: #1f2937 !important;
+}
+.pi-light,
+.icon-light {
+  color: #f8fafc !important;
+}
+
+/* ===== ICON ANIMATIONS ===== */
+.pi-spin,
+.icon-spin {
+  animation: pi-spin 1s linear infinite;
+}
+
+.pi-pulse,
+.icon-pulse {
+  animation: pi-pulse 2s ease-in-out infinite;
+}
+
+.pi-bounce,
+.icon-bounce {
+  animation: pi-bounce 1s ease-in-out infinite;
+}
+
+.pi-shake,
+.icon-shake {
+  animation: pi-shake 0.5s ease-in-out;
+}
+
+.pi-tada,
+.icon-tada {
+  animation: pi-tada 1s ease-in-out;
+}
+
+.pi-wobble,
+.icon-wobble {
+  animation: pi-wobble 1s ease-in-out;
+}
+
+/* ===== INTERACTIVE EFFECTS ===== */
+.pi-hover,
+.icon-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pi-hover:hover,
+.icon-hover:hover {
+  transform: scale(1.15);
+  color: var(--p-primary-500, #3b82f6);
+}
+
+.pi-hover-rotate,
+.icon-hover-rotate {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pi-hover-rotate:hover,
+.icon-hover-rotate:hover {
+  transform: rotate(15deg);
+}
+
+.pi-hover-bounce,
+.icon-hover-bounce {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pi-hover-bounce:hover,
+.icon-hover-bounce:hover {
+  animation: pi-bounce 0.5s ease-in-out;
+}
+
+/* ===== SPACING UTILITIES ===== */
+.pi-mr-1,
+.icon-mr-1 {
+  margin-right: 0.25rem;
+}
+.pi-mr-2,
+.icon-mr-2 {
+  margin-right: 0.5rem;
+}
+.pi-mr-3,
+.icon-mr-3 {
+  margin-right: 0.75rem;
+}
+.pi-mr-4,
+.icon-mr-4 {
+  margin-right: 1rem;
+}
+
+.pi-ml-1,
+.icon-ml-1 {
+  margin-left: 0.25rem;
+}
+.pi-ml-2,
+.icon-ml-2 {
+  margin-left: 0.5rem;
+}
+.pi-ml-3,
+.icon-ml-3 {
+  margin-left: 0.75rem;
+}
+.pi-ml-4,
+.icon-ml-4 {
+  margin-left: 1rem;
+}
+
+.pi-mt-1,
+.icon-mt-1 {
+  margin-top: 0.25rem;
+}
+.pi-mt-2,
+.icon-mt-2 {
+  margin-top: 0.5rem;
+}
+.pi-mb-1,
+.icon-mb-1 {
+  margin-bottom: 0.25rem;
+}
+.pi-mb-2,
+.icon-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== ICON CONTAINERS ===== */
+.pi-circle,
+.icon-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--p-primary-50, rgba(59, 130, 246, 0.1));
+  color: var(--p-primary-500, #3b82f6);
+  transition: all 0.3s ease;
+}
+
+.pi-circle-sm,
+.icon-circle-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.pi-circle-lg,
+.icon-circle-lg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.pi-circle-xl,
+.icon-circle-xl {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* Circle color variants */
+.pi-circle-primary,
+.icon-circle-primary {
+  background-color: var(--p-primary-50, rgba(59, 130, 246, 0.1));
+  color: var(--p-primary-500, #3b82f6);
+}
+
+.pi-circle-success,
+.icon-circle-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.pi-circle-warning,
+.icon-circle-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.pi-circle-danger,
+.icon-circle-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.pi-circle-info,
+.icon-circle-info {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+/* Square containers */
+.pi-square,
+.icon-square {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--p-primary-50, rgba(59, 130, 246, 0.1));
+  color: var(--p-primary-500, #3b82f6);
+}
+
+/* ===== UTILITY COMBINATIONS ===== */
+.pi-with-text,
+.icon-with-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pi-with-text i,
+.icon-with-text i {
+  flex-shrink: 0;
+}
+
+/* ===== STATUS INDICATORS ===== */
+.pi-status,
+.icon-status {
+  position: relative;
+}
+
+.pi-status::after,
+.icon-status::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.pi-status-online::after,
+.icon-status-online::after {
+  background-color: #22c55e;
+}
+
+.pi-status-offline::after,
+.icon-status-offline::after {
+  background-color: #6b7280;
+}
+
+.pi-status-away::after,
+.icon-status-away::after {
+  background-color: #f59e0b;
+}
+
+.pi-status-busy::after,
+.icon-status-busy::after {
+  background-color: #ef4444;
+}
+
+/* ===== BADGE UTILITIES ===== */
+.pi-badge,
+.icon-badge {
+  position: relative;
+}
+
+.pi-badge::after,
+.icon-badge::after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ===== LOADING STATES ===== */
+.pi-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.pi-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--p-primary-500, #3b82f6);
+  border-radius: 50%;
+  animation: pi-spin 1s linear infinite;
+}
+
+/* ===== THEME ADAPTATIONS ===== */
+@media (prefers-color-scheme: dark) {
+  .pi-circle,
+  .icon-circle {
+    background-color: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+  }
+
+  .pi-muted,
+  .icon-muted {
+    color: #9ca3af;
+  }
+
+  .pi-status::after,
+  .icon-status::after {
+    border-color: var(--p-surface-card, #1e293b);
+  }
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes pi-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pi-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pi-bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pi-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes pi-tada {
+  0% {
+    transform: scale(1);
+  }
+  10%,
+  20% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  40%,
+  60%,
+  80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes pi-wobble {
+  0% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 768px) {
+  .pi-lg,
+  .icon-lg {
+    font-size: 1.25rem !important;
+  }
+  .pi-xl,
+  .icon-xl {
+    font-size: 1.5rem !important;
+  }
+  .pi-2xl,
+  .icon-2xl {
+    font-size: 2rem !important;
+  }
+  .pi-3xl,
+  .icon-3xl {
+    font-size: 2.5rem !important;
+  }
+
+  .pi-circle,
+  .icon-circle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .pi-circle-lg,
+  .icon-circle-lg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.pi-focusable,
+.icon-focusable {
+  outline: none;
+  border-radius: 0.25rem;
+}
+
+.pi-focusable:focus,
+.icon-focusable:focus {
+  box-shadow: 0 0 0 3px var(--p-primary-500, #3b82f6);
+  outline: none;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .pi-spin,
+  .icon-spin {
+    animation: none;
+  }
+
+  .pi-hover,
+  .icon-hover {
+    transform: none !important;
+  }
+}

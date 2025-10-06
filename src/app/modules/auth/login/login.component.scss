@@ -1,0 +1,492 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--p-primary-50) 0%,
+    var(--p-primary-100) 100%
+  );
+  transition: background 0.3s ease;
+
+  &.theme-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+// Enhanced Header Section with Icons
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .pi-circle {
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(59, 130, 246, 0.3);
+      }
+    }
+
+    .app-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--p-text-color);
+      margin: 0;
+      letter-spacing: -1px;
+      justify-content: center;
+
+      .pi {
+        animation: pi-pulse 2s ease-in-out infinite;
+      }
+    }
+
+    .app-subtitle {
+      color: var(--p-text-muted-color);
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Login Card
+.login-card {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  ::ng-deep {
+    .p-card-content {
+      padding: 0;
+    }
+
+    .p-card-body {
+      padding: 2rem;
+    }
+  }
+
+  .card-header {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .pi-with-text {
+      align-items: flex-start;
+      gap: 1rem;
+
+      .pi-circle {
+        margin-top: 0.25rem;
+        flex-shrink: 0;
+      }
+    }
+
+    .login-title {
+        font: bolder;
+      font-size: 4rem;
+      font-weight: 600;
+      color: var(--p-text-color);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .login-subtitle {
+      color: var(--p-text-muted-color);
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+// Form Styles
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+
+  ::ng-deep {
+    .p-float-label {
+      width: 100%;
+
+      input,
+      .p-password {
+        width: 100%;
+      }
+
+      .p-iconfield {
+        width: 100%;
+
+        input {
+          padding-left: 2.5rem;
+        }
+      }
+    }
+
+    .p-password {
+      width: 100%;
+
+      .p-password-input {
+        width: 100%;
+        padding-right: 2.5rem;
+      }
+    }
+
+    .p-inputtext,
+    .p-password-input {
+      height: 3rem;
+      border-radius: 8px;
+      border: 2px solid var(--p-border-color);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: var(--p-primary-500);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      &.p-invalid {
+        border-color: var(--p-red-500);
+      }
+    }
+
+    label {
+      font-weight: 500;
+      color: var(--p-text-color);
+    }
+  }
+
+  .error-text {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    .pi {
+      animation: pi-shake 0.5s ease-in-out;
+    }
+
+    .p-error {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Form Options
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .remember-label {
+      font-size: 0.9rem;
+      color: var(--p-text-color);
+      cursor: pointer;
+    }
+  }
+
+  .forgot-password-link {
+    background: none;
+    border: none;
+    color: var(--p-primary-500);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--p-primary-600);
+      text-decoration: underline;
+    }
+  }
+}
+
+// Enhanced Login Button with Icons
+::ng-deep .login-button {
+  width: 100% !important;
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+
+  .p-button-label {
+    font-weight: 600;
+  }
+
+  .pi-with-text {
+    justify-content: center;
+    gap: 0.5rem;
+
+    .pi {
+      font-size: 1.1rem;
+    }
+
+    .pi-spin {
+      animation: pi-spin 1s linear infinite;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+
+    .pi-sign-in {
+      animation: pi-bounce 0.6s ease-in-out;
+    }
+  }
+}
+
+// Enhanced Demo Info with Icons
+.demo-info {
+  margin: 1.5rem 0;
+
+  .demo-text {
+    background: var(--p-surface-card);
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    color: var(--p-text-muted-color);
+    font-weight: 500;
+
+    .pi {
+      animation: pi-pulse 2s ease-in-out infinite;
+    }
+  }
+
+  .demo-credentials {
+    background: var(--p-highlight-bg);
+    border: 1px solid var(--p-highlight-border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .pi-with-text {
+      align-items: center;
+
+      .pi {
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--p-text-color);
+
+        strong {
+          color: var(--p-primary-500);
+        }
+      }
+    }
+  }
+}
+
+// Enhanced Login Footer with Icons
+.login-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--p-border-color);
+
+  .signup-text {
+    margin: 0;
+    color: var(--p-text-muted-color);
+    font-size: 0.9rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .signup-link {
+      background: none;
+      border: none;
+      color: var(--p-primary-500);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--p-primary-600);
+        background: var(--p-primary-50);
+        transform: translateX(2px);
+
+        .pi {
+          animation: pi-bounce 0.6s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// Enhanced Error Message with Icons
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  .pi-with-text {
+    align-items: center;
+    color: #dc2626;
+    font-weight: 500;
+
+    .pi {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Theme Indicator
+.theme-indicator {
+  text-align: center;
+  opacity: 0.7;
+
+  small {
+    color: var(--p-text-muted-color);
+    font-size: 0.8rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-wrapper {
+    max-width: 100%;
+  }
+
+  .login-header {
+    .logo-section {
+      .app-name {
+        font-size: 2rem;
+      }
+
+      .app-subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  ::ng-deep .login-card .p-card-body {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    .login-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+
+  .login-header {
+    .logo-section {
+      .pi-graduation-cap {
+        font-size: 2.5rem !important;
+      }
+
+      .app-name {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  ::ng-deep .login-card .p-card-body {
+    padding: 1rem;
+  }
+
+  .demo-credentials {
+    font-size: 0.8rem;
+  }
+}
+
+// Dark theme specific adjustments
+.theme-dark {
+  .login-card {
+    background: var(--p-surface-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .demo-credentials {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+}
+
+// Animations
+.login-card {
+  animation: slideUp 0.6s ease-out;
+}
+
+.login-header {
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
