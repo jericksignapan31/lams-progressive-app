@@ -1,0 +1,110 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@lams.com",
+      "password": "admin123",
+      "firstName": "LAMS",
+      "lastName": "Administrator",
+      "role": "admin",
+      "isActive": true,
+      "avatar": "https://via.placeholder.com/150/007bff/ffffff?text=LA",
+      "department": "Information Technology",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "lastLogin": "2025-10-06T09:51:09.860Z"
+    },
+    {
+      "id": "2",
+      "email": "teacher@lams.com",
+      "password": "teacher123",
+      "firstName": "Maria",
+      "lastName": "Santos",
+      "role": "teacher",
+      "isActive": true,
+      "avatar": "https://via.placeholder.com/150/28a745/ffffff?text=MS",
+      "department": "Computer Science",
+      "createdAt": "2025-01-02T00:00:00.000Z",
+      "lastLogin": null
+    },
+    {
+      "id": "3",
+      "email": "student@lams.com",
+      "password": "student123",
+      "firstName": "Juan",
+      "lastName": "Dela Cruz",
+      "role": "student",
+      "isActive": true,
+      "avatar": "https://via.placeholder.com/150/17a2b8/ffffff?text=JD",
+      "department": "Information Technology",
+      "createdAt": "2025-01-03T00:00:00.000Z",
+      "lastLogin": null
+    },
+    {
+      "id": "4",
+      "email": "faculty@lams.com",
+      "password": "faculty123",
+      "firstName": "Dr. Jose",
+      "lastName": "Rizal",
+      "role": "faculty",
+      "isActive": true,
+      "avatar": "https://via.placeholder.com/150/6f42c1/ffffff?text=JR",
+      "department": "Engineering",
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "lastLogin": null
+    },
+    {
+      "id": "5",
+      "email": "labtech@lams.com",
+      "password": "labtech123",
+      "firstName": "Ana",
+      "lastName": "Garcia",
+      "role": "lab_technician",
+      "isActive": true,
+      "avatar": "https://via.placeholder.com/150/fd7e14/ffffff?text=AG",
+      "department": "Laboratory Services",
+      "createdAt": "2025-01-05T00:00:00.000Z",
+      "lastLogin": null
+    }
+  ],
+  "sessions": [],
+  "activities": [
+    {
+      "id": "1",
+      "title": "Database Design Lab",
+      "description": "Introduction to database design principles",
+      "userId": 2,
+      "department": "Computer Science",
+      "status": "active",
+      "createdAt": "2025-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Network Security Workshop",
+      "description": "Hands-on network security exercises",
+      "userId": 4,
+      "department": "Engineering",
+      "status": "scheduled",
+      "createdAt": "2025-01-11T00:00:00.000Z"
+    }
+  ],
+  "equipment": [
+    {
+      "id": "1",
+      "name": "Dell OptiPlex 7090",
+      "type": "Computer",
+      "serialNumber": "DL001",
+      "status": "available",
+      "department": "Computer Science",
+      "assignedTo": null
+    },
+    {
+      "id": "2",
+      "name": "HP LaserJet Pro M404n",
+      "type": "Printer",
+      "serialNumber": "HP001",
+      "status": "in_use",
+      "department": "Information Technology",
+      "assignedTo": 1
+    }
+  ]
+}

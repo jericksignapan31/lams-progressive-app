@@ -20,8 +20,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 
-// Theming
+// Services
 import { ThemeService } from '../../../services/theme.service';
+import { AuthService } from '../../../services/auth.service';
 import { inject } from '@angular/core';
 
 @Component({
@@ -40,19 +41,18 @@ import { inject } from '@angular/core';
     FloatLabelModule,
     IconFieldModule,
     InputIconModule,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  isLoading = false;
   loginError = '';
 
-  // Theme service for dynamic theming
+  // Services
   themeService = inject(ThemeService);
-username: any;
+  authService = inject(AuthService);
 
   constructor(private fb: FormBuilder, private router: Router) {}
 
@@ -69,6 +69,19 @@ username: any;
     return this.themeService.themeColors();
   }
 
+  // Auth helper methods
+  get isLoading() {
+    return this.authService.isLoading();
+  }
+
+  get isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
+  get currentUser() {
+    return this.authService.currentUser();
+  }
+
   ngOnInit() {
     this.createForm();
   }
@@ -83,29 +96,43 @@ username: any;
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.isLoading = true;
       this.loginError = '';
+      const { email, password } = this.loginForm.value;
 
-      // Simulate login API call
-      setTimeout(() => {
-        const { email, password } = this.loginForm.value;
-
-        // Simple demo authentication
-        if (email === 'admin@lams.com' && password === 'admin123') {
+      this.authService.login({ email, password }).subscribe({
+        next: (response) => {
           // Successful login
-          localStorage.setItem(
-            'lams_user',
-            JSON.stringify({ email, loggedIn: true })
-          );
-          this.router.navigate(['/home']);
-        } else {
-          // Failed login
-          this.loginError =
-            'Invalid email or password. Try admin@lams.com / admin123';
-        }
+          console.log('Login successful:', response.user);
 
-        this.isLoading = false;
-      }, 1500);
+          // Check if there's a redirect URL
+          const redirectUrl = this.authService.getAndClearAttemptedUrl();
+
+          if (redirectUrl) {
+            this.router.navigateByUrl(redirectUrl);
+          } else {
+            // Default redirect based on user role
+            switch (response.user.role) {
+              case 'admin':
+                this.router.navigate(['/admin/dashboard']);
+                break;
+              case 'teacher':
+              case 'faculty':
+                this.router.navigate(['/teacher/dashboard']);
+                break;
+              case 'lab_technician':
+                this.router.navigate(['/lab/dashboard']);
+                break;
+              default:
+                this.router.navigate(['/student/dashboard']);
+            }
+          }
+        },
+        error: (error) => {
+          // Failed login
+          this.loginError = error.message;
+          console.error('Login failed:', error);
+        },
+      });
     } else {
       this.markFormGroupTouched();
     }
