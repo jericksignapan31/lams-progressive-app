@@ -101,7 +101,7 @@
     }
 
     .login-title {
-        font: bolder;
+      font: bolder;
       font-size: 4rem;
       font-weight: 600;
       color: var(--p-text-color);
@@ -121,45 +121,99 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+
+  // Ensure all form elements have consistent width
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .form-group {
   position: relative;
+  width: 100%;
+
+  // Ensure all form groups have the same width
+  > * {
+    width: 100%;
+  }
 
   ::ng-deep {
     .p-float-label {
       width: 100%;
+      display: block;
 
+      // Ensure consistent width for all input containers
       input,
-      .p-password {
-        width: 100%;
+      .p-password,
+      .p-iconfield {
+        width: 100% !important;
+        box-sizing: border-box;
       }
 
       .p-iconfield {
-        width: 100%;
+        width: 100% !important;
+        display: block;
+        position: relative;
 
         input {
+          width: 100% !important;
           padding-left: 2.5rem;
+          padding-right: 1rem;
+          display: block;
+          box-sizing: border-box;
+        }
+
+        .p-inputicon {
+          position: absolute;
+          left: 0.75rem;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 2;
+          pointer-events: none;
         }
       }
     }
 
+    // Password field specific styling
     .p-password {
-      width: 100%;
+      width: 100% !important;
+      display: block;
+      position: relative;
 
       .p-password-input {
-        width: 100%;
+        width: 100% !important;
         padding-right: 2.5rem;
+        padding-left: 1rem;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      .p-password-toggle-mask {
+        right: 0.75rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      // Override any PrimeNG wrapper styles
+      > .p-inputwrapper {
+        width: 100% !important;
+        display: block;
       }
     }
 
+    // Consistent input styling
     .p-inputtext,
     .p-password-input {
+      width: 100% !important;
       height: 3rem;
       border-radius: 8px;
       border: 2px solid var(--p-border-color);
       font-size: 1rem;
+      padding: 0.75rem 1rem;
       transition: all 0.3s ease;
+      box-sizing: border-box;
 
       &:focus {
         border-color: var(--p-primary-500);
@@ -171,6 +225,7 @@
       }
     }
 
+    // Label styling
     label {
       font-weight: 500;
       color: var(--p-text-color);

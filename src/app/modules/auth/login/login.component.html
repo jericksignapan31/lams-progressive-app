@@ -29,9 +29,6 @@
         <div class="form-group">
           <p-floatlabel>
             <p-iconfield iconPosition="left">
-              <p-inputicon
-                styleClass="pi pi-envelope pi-primary pi-hover"
-              ></p-inputicon>
               <input
                 pInputText
                 id="email"
@@ -40,7 +37,10 @@
                 autocomplete="email"
               />
             </p-iconfield>
-            <label for="email"> Email Address </label>
+            <label for="email">
+              <i class="pi pi-envelope pi-muted"></i>
+              Email Address
+            </label>
           </p-floatlabel>
           <div *ngIf="isFieldInvalid('email')" class="error-text">
             <i class="pi pi-times-circle pi-danger pi-mr-1"></i>
