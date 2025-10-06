@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Global theming styles
+body {
+  font-family: var(--p-font-family);
+  background-color: var(--p-surface-ground);
+  color: var(--p-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Light theme (default)
+body.light {
+  --p-surface-ground: #ffffff;
+  --p-surface-card: #ffffff;
+  --p-text-color: #1f2937;
+  --p-border-color: #e5e7eb;
+  --p-primary-50: #eff6ff;
+  --p-primary-500: #3b82f6;
+  --p-primary-600: #2563eb;
+}
+
+// Dark theme
+body.dark {
+  --p-surface-ground: #0f172a;
+  --p-surface-card: #1e293b;
+  --p-surface-800: #334155;
+  --p-surface-700: #475569;
+  --p-text-color: #f8fafc;
+  --p-border-color: #475569;
+  --p-primary-50: #1e293b;
+  --p-primary-500: #60a5fa;
+  --p-primary-600: #3b82f6;
+}
+
+// Smooth transitions for theme switching
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease !important;
+}
+
+// Custom scrollbar theming
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--p-surface-ground);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--p-border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--p-primary-500);
+}
+
+// Ensure PrimeNG components inherit theme colors
+.p-component {
+  font-family: var(--p-font-family);
+}
+
+// Add some default spacing and typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--p-text-color);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--p-text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
